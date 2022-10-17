@@ -26,8 +26,8 @@
   ],
   "depends": {
     "fabricloader": ">=0.14.6",
-    "fabric-resource-loader-v0": ">=0.5.3",
-    "minecraft": ">=1.19",
+    "fabric-resource-loader-v0": ">=0.6.1",
+    "minecraft": ">=1.19.2",
     "java": ">=17"
   },
   "breaks": {
