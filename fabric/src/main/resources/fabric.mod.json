@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "id": "aofemotes",
-  "version": "${version}",
-  "name": "AOF Emotes",
+  "id": "aoeemotes",
+  "version": "${mod_version}",
+  "name": "AOE Emotes",
   "description": "Discord style chat emotes for Minecraft chat. A fork of Fabric Emotes.",
   "authors": [
     "AlgidSpace",
-    "TeamAOF"
+    "TeamAOE"
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/aof-emotes/",
-    "sources": "https://github.com/quinn-semele/aof-emotes/",
-    "issues": "https://github.com/quinn-semele/aof-emotes/issues/"
+    "sources": "https://github.com/quinn-semele/aoe-emotes/",
+    "issues": "https://github.com/quinn-semele/aoe-emotes/issues/"
   },
   "license": "MIT",
-  "icon": "assets/aofemotes/icon.png",
+  "icon": "aoe-emotes.png",
   "environment": "client",
   "entrypoints": {
     "client": [
@@ -22,7 +22,7 @@
     ]
   },
   "mixins": [
-    "aofemotes.mixins.json"
+    "aoe-emotes.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.15.11",
