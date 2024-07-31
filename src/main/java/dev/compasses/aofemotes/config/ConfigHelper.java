@@ -22,24 +22,31 @@ import java.util.List;
 public class ConfigHelper {
     public static List<ConfigEmote> loadOrSaveConfig() {
         Path configFile = FabricLoader.getInstance().getConfigDir().resolve(Constants.MOD_ID + ".json");
+
         if (Files.exists(configFile)) {
             List<ConfigEmote> emotes = new ArrayList<>();
+
             try (BufferedReader reader = Files.newBufferedReader(configFile)) {
                 JsonReader jsonReader = new GsonBuilder().create().newJsonReader(reader);
                 jsonReader.beginObject();
+
                 if (jsonReader.nextName().equals("emotes")) {
                     jsonReader.beginObject();
+
                     while (jsonReader.peek() == JsonToken.NAME) {
                         String emoteName = jsonReader.nextName();
                         JsonToken type = jsonReader.peek();
+
                         if (type == JsonToken.STRING) {
                             emotes.add(new ConfigEmote(emoteName, jsonReader.nextString(), 0));
                         } else if (type == JsonToken.BEGIN_OBJECT) {
                             jsonReader.beginObject();
                             String path = null;
                             Integer frameTime = null;
+
                             while (jsonReader.peek() != JsonToken.END_OBJECT) {
                                 String nextName = jsonReader.nextName();
+
                                 if (nextName.equals("path")) {
                                     path = jsonReader.nextString();
                                 } else if (nextName.equals("frame_time")) {
@@ -48,7 +55,9 @@ public class ConfigHelper {
                                     Constants.LOGGER.warn("Emote " + emoteName + " has an invalid entry: " + nextName + ".");
                                 }
                             }
+
                             jsonReader.endObject();
+
                             if (path != null && frameTime != null) {
                                 if (frameTime < 0) {
                                     Constants.LOGGER.warn("Invalid emote " + emoteName + " frame_time is less than 0.");
@@ -66,16 +75,20 @@ public class ConfigHelper {
             } catch (IOException e) {
                 Constants.LOGGER.warn("Failed to read emote config file.");
             }
+
             return emotes;
         } else {
             List<ConfigEmote> emotes = ConfigHelper.getDefaultConfig();
+
             try (BufferedWriter writer = Files.newBufferedWriter(configFile, StandardOpenOption.CREATE_NEW)) {
                 JsonWriter jsonWriter = new GsonBuilder().setPrettyPrinting().create().newJsonWriter(writer);
                 jsonWriter.beginObject();
                 jsonWriter.name("emotes");
                 jsonWriter.beginObject();
+
                 for (ConfigEmote emote : emotes) {
                     jsonWriter.name(emote.getName());
+
                     if (emote.getFrameTime() == 0) {
                         jsonWriter.value(emote.getPath());
                     } else {
@@ -87,6 +100,7 @@ public class ConfigHelper {
                         jsonWriter.endObject();
                     }
                 }
+
                 jsonWriter.endObject();
                 jsonWriter.endObject();
             } catch (IOException e) {
@@ -104,6 +118,7 @@ public class ConfigHelper {
         if (frameTime > 0) {
             fileName = "animated/" + fileName;
         }
+
         return new ConfigEmote(name, Constants.MOD_ID + ":emotes/" + fileName, frameTime);
     }
 

@@ -15,6 +15,7 @@ public class TextReaderVisitor implements FormattedCharSink {
     @Override
     public boolean accept(int val, Style style, int currCharInt) {
         parts.add(new TextPart(style, (char) currCharInt));
+
         return true;
     }
 
@@ -37,17 +38,21 @@ public class TextReaderVisitor implements FormattedCharSink {
 
     public FormattedCharSequence getOrderedText() {
         MutableComponent text = Component.literal("");
+
         for (TextPart part : parts) {
             text.append(Component.literal(Character.toString(part.getChar())).setStyle(part.getStyle()));
         }
+
         return text.getVisualOrderText();
     }
 
     public String getString() {
         StringBuilder builder = new StringBuilder();
+
         for (TextPart part : parts) {
             builder.append(part.getChar());
         }
+
         return builder.toString();
     }
 }

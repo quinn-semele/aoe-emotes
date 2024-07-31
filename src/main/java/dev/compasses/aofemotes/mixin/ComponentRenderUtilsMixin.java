@@ -11,21 +11,24 @@ import java.util.regex.Matcher;
 import net.minecraft.client.gui.components.ComponentRenderUtils;
 
 @Mixin(ComponentRenderUtils.class)
-public class ChatMessagesMixin {
+public class ComponentRenderUtilsMixin {
     @ModifyVariable(
             method = "stripColor(Ljava/lang/String;)Ljava/lang/String;",
             at = @At("HEAD"),
             ordinal = 0,
             argsOnly = true
     )
-    private static String getRenderedChatMessageParam(String message) {
+    private static String getRenderedChatMessage(String message) {
         boolean emotesLeft = true;
+
         while (emotesLeft) {
             Matcher emoteMatch = Constants.EMOTE_PATTEN.matcher(message);
+
             //noinspection AssignmentUsedAsCondition
             while (emotesLeft = emoteMatch.find()) {
                 String emoteName = emoteMatch.group(2);
                 Emote emote = EmoteRegistry.getInstance().getEmoteByName(emoteName);
+
                 if (emote != null) {
                     int startPos = emoteMatch.start(1);
                     int endPos = emoteMatch.end(1);
@@ -34,6 +37,7 @@ public class ChatMessagesMixin {
                 }
             }
         }
+
         return message;
     }
 }

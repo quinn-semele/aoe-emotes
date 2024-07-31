@@ -5,9 +5,9 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [],
   "client": [
-    "ChatHudMixin",
-    "CommandSuggestorMixin",
-    "ChatMessagesMixin"
+    "ChatComponentMixin",
+    "CommandSuggestionsMixin",
+    "ComponentRenderUtilsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

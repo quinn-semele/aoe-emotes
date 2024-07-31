@@ -33,6 +33,7 @@ public class EmoteRegistry {
     public void init() {
         emoteIdMap.clear();
         emoteMap.clear();
+
         for (ConfigEmote emote : emotes) {
             try {
                 this.registerEmote(emote.asRegistryEmote(emoteMap.size()));

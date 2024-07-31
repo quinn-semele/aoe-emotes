@@ -31,19 +31,24 @@ public final class Emote {
         if (frameTimeMs < 0) {
             throw new IllegalArgumentException("frame time must be greater than 0");
         }
+
         Resource resource = Minecraft.getInstance().getResourceManager().getResourceOrThrow(filePath);
         BufferedImage image = ImageIO.read(resource.open());
+
         if (image == null) {
             throw new IOException("Failed to load image: " + filePath);
         }
+
         int width = image.getWidth();
         int height = image.getHeight();
         int frameCount = 1;
+
         if (frameTimeMs > 0) {
             frameCount = height / width;
             //noinspection SuspiciousNameCombination
             height = width;
         }
+
         return new Emote(id, name, filePath, frameTimeMs, width, height, frameCount);
     }
 

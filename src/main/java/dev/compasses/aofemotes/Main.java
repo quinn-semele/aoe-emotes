@@ -1,14 +1,14 @@
 package dev.compasses.aofemotes;
 
 import dev.compasses.aofemotes.emotes.EmoteRegistry;
+import dev.compasses.aofemotes.config.ConfigEmote;
+import dev.compasses.aofemotes.config.ConfigHelper;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.ResourceManager;
-import dev.compasses.aofemotes.config.ConfigEmote;
-import dev.compasses.aofemotes.config.ConfigHelper;
 
 import java.util.List;
 
