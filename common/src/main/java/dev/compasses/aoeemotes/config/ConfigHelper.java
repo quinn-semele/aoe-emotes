@@ -1,11 +1,10 @@
-package dev.compasses.aofemotes.config;
+package dev.compasses.aoeemotes.config;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-import dev.compasses.aofemotes.Constants;
-import net.fabricmc.loader.api.FabricLoader;
+import dev.compasses.aoeemotes.Constants;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -20,8 +19,12 @@ import java.util.List;
  * @author Ellie Semele
  */
 public class ConfigHelper {
+    public static Path configFile = null;
+
     public static List<ConfigEmote> loadOrSaveConfig() {
-        Path configFile = FabricLoader.getInstance().getConfigDir().resolve(Constants.MOD_ID + ".json");
+        if (configFile == null) {
+            throw new IllegalStateException("Config file path has not been set by the author...");
+        }
 
         if (Files.exists(configFile)) {
             List<ConfigEmote> emotes = new ArrayList<>();

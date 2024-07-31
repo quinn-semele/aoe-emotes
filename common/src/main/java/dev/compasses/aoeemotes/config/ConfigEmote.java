@@ -1,6 +1,6 @@
-package dev.compasses.aofemotes.config;
+package dev.compasses.aoeemotes.config;
 
-import dev.compasses.aofemotes.emotes.Emote;
+import dev.compasses.aoeemotes.emotes.Emote;
 import net.minecraft.resources.ResourceLocation;
 
 import java.io.IOException;

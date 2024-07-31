@@ -1,4 +1,4 @@
-package dev.compasses.aofemotes.text;
+package dev.compasses.aoeemotes.text;
 
 import net.minecraft.network.chat.Style;
 

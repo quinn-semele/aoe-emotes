@@ -1,8 +1,8 @@
-package dev.compasses.aofemotes.mixin;
+package dev.compasses.aoeemotes.mixin;
 
-import dev.compasses.aofemotes.Constants;
-import dev.compasses.aofemotes.emotes.Emote;
-import dev.compasses.aofemotes.emotes.EmoteRegistry;
+import dev.compasses.aoeemotes.Constants;
+import dev.compasses.aoeemotes.emotes.Emote;
+import dev.compasses.aoeemotes.emotes.EmoteRegistry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;

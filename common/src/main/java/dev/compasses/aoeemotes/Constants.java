@@ -1,4 +1,4 @@
-package dev.compasses.aofemotes;
+package dev.compasses.aoeemotes;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

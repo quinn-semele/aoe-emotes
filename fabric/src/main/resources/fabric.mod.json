@@ -18,7 +18,7 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "dev.compasses.aofemotes.Main"
+      "dev.compasses.aoeemotes.Main"
     ]
   },
   "mixins": [

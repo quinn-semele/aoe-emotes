@@ -1,6 +1,6 @@
-package dev.compasses.aofemotes.mixin;
+package dev.compasses.aoeemotes.mixin;
 
-import dev.compasses.aofemotes.emotes.EmoteRegistry;
+import dev.compasses.aoeemotes.emotes.EmoteRegistry;
 import net.minecraft.client.gui.components.CommandSuggestions;
 import net.minecraft.client.multiplayer.ClientSuggestionProvider;
 import org.spongepowered.asm.mixin.Mixin;

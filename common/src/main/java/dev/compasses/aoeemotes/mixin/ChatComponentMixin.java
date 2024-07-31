@@ -1,8 +1,8 @@
-package dev.compasses.aofemotes.mixin;
+package dev.compasses.aoeemotes.mixin;
 
-import dev.compasses.aofemotes.Constants;
-import dev.compasses.aofemotes.render.EmoteRenderHelper;
-import dev.compasses.aofemotes.text.TextReaderVisitor;
+import dev.compasses.aoeemotes.Constants;
+import dev.compasses.aoeemotes.render.EmoteRenderHelper;
+import dev.compasses.aoeemotes.text.TextReaderVisitor;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.ChatComponent;

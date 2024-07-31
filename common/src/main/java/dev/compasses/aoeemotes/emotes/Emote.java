@@ -1,4 +1,4 @@
-package dev.compasses.aofemotes.emotes;
+package dev.compasses.aoeemotes.emotes;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;

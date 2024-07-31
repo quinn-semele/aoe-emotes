@@ -1,6 +1,6 @@
-package dev.compasses.aofemotes.render;
+package dev.compasses.aoeemotes.render;
 
-import dev.compasses.aofemotes.emotes.Emote;
+import dev.compasses.aoeemotes.emotes.Emote;
 
 /**
  * @author Ellie Semele

@@ -12,6 +12,11 @@ neoForge {
     }
 }
 
+dependencies {
+    compileOnly(group: 'org.spongepowered', name: "mixin", version: project.mixin_version)
+    annotationProcessor(compileOnly(group: 'io.github.llamalad7', name: 'mixinextras-common', version: project.mixinextras_version))
+}
+
 configurations {
     create("commonJava") { canBeResolved = false; canBeConsumed = true }
     create("commonResources") { canBeResolved = false; canBeConsumed = true }
