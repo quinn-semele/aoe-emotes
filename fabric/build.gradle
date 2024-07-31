@@ -1,6 +1,5 @@
 plugins {
 	id 'fabric-loom' version '1.7-SNAPSHOT'
-	id 'maven-publish'
 }
 
 sourceCompatibility = JavaVersion.VERSION_21
@@ -48,17 +47,4 @@ java {
 jar {
 	from("fabric-emotes_LICENSE")
 	from("LICENSE")
-}
-
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			from components.java
-		}
-	}
-
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	repositories {
-
-	}
 }
