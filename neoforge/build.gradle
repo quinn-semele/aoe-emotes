@@ -1,20 +1,14 @@
 plugins {
-    id 'java-library'
-    id 'net.neoforged.moddev' version '1.0.15'
+    id 'multiloader-loader'
+    id 'net.neoforged.moddev'
 }
 
 version = "${project.mod_version}+${project.minecraft_version}-neoforge"
 group = project.maven_group
 
-repositories {
-    mavenLocal()
-}
-
 base {
     archivesName = project.archives_base_name
 }
-
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 neoForge {
     version = project.neo_version

@@ -1,9 +1,7 @@
 plugins {
+	id 'multiloader-loader'
 	id 'fabric-loom' version '1.7-SNAPSHOT'
 }
-
-sourceCompatibility = JavaVersion.VERSION_21
-targetCompatibility = JavaVersion.VERSION_21
 
 archivesBaseName = project.archives_base_name
 version = "${project.mod_version}+${project.minecraft_version}-fabric"
@@ -31,15 +29,6 @@ processResources {
 	filesMatching("fabric.mod.json") {
 		expand "mod_version": project.mod_version
 	}
-}
-
-tasks.withType(JavaCompile).configureEach {
-	// Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
-	it.options.release = 21
-}
-
-java {
-	withSourcesJar()
 }
 
 jar {

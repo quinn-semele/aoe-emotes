@@ -1,0 +1,27 @@
+plugins {
+    id("multiloader-shared")
+}
+
+configurations {
+    create("commonJava") { canBeResolved = true }
+    create("commonResources") { canBeResolved = true }
+}
+
+dependencies {
+    compileOnly(project(":common"))
+
+    commonJava(project(path: ":common", configuration: "commonJava"))
+    commonResources(project(path: ":common", configuration: "commonResources"))
+}
+
+tasks {
+    compileJava {
+        dependsOn(configurations.commonJava)
+        source(configurations.commonJava)
+    }
+
+    processResources {
+        dependsOn(configurations.commonResources)
+        from(configurations.commonResources)
+    }
+}

@@ -1,0 +1,23 @@
+plugins {
+    id 'multiloader-shared'
+    id 'net.neoforged.moddev'
+}
+
+neoForge {
+    neoFormVersion = project.neoform_version
+
+    parchment {
+        minecraftVersion = project.parchment_minecraft_version
+        mappingsVersion = project.parchment_mappings_version
+    }
+}
+
+configurations {
+    create("commonJava") { canBeResolved = false; canBeConsumed = true }
+    create("commonResources") { canBeResolved = false; canBeConsumed = true }
+}
+
+artifacts {
+    commonJava(sourceSets.main.java.sourceDirectories.singleFile)
+    commonResources(sourceSets.main.resources.sourceDirectories.singleFile)
+}
