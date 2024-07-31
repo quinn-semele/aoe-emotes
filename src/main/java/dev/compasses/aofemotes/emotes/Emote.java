@@ -1,8 +1,8 @@
 package dev.compasses.aofemotes.emotes;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.resource.Resource;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.Resource;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -11,13 +11,13 @@ import java.io.IOException;
 public final class Emote {
     private final int id;
     private final String name;
-    private final Identifier textureId;
+    private final ResourceLocation textureId;
     private final int frameTimeMs;
     private final int width;
     private final int height;
     private final int frameCount;
 
-    private Emote(int id, String name, Identifier textureId, int frameTimeMs, int width, int height, int frameCount) {
+    private Emote(int id, String name, ResourceLocation textureId, int frameTimeMs, int width, int height, int frameCount) {
         this.id = id;
         this.name = name;
         this.textureId = textureId;
@@ -27,12 +27,12 @@ public final class Emote {
         this.frameCount = frameCount;
     }
 
-    public static Emote create(int id, String name, Identifier filePath, int frameTimeMs) throws IOException {
+    public static Emote create(int id, String name, ResourceLocation filePath, int frameTimeMs) throws IOException {
         if (frameTimeMs < 0) {
             throw new IllegalArgumentException("frame time must be greater than 0");
         }
-        Resource resource = MinecraftClient.getInstance().getResourceManager().getResourceOrThrow(filePath);
-        BufferedImage image = ImageIO.read(resource.getInputStream());
+        Resource resource = Minecraft.getInstance().getResourceManager().getResourceOrThrow(filePath);
+        BufferedImage image = ImageIO.read(resource.open());
         if (image == null) {
             throw new IOException("Failed to load image: " + filePath);
         }
@@ -83,7 +83,7 @@ public final class Emote {
         return height * frameCount;
     }
 
-    public Identifier getTextureIdentifier() {
+    public ResourceLocation getTextureIdentifier() {
         return textureId;
     }
 }

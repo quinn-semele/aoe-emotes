@@ -3,17 +3,17 @@ package dev.compasses.aofemotes.mixin;
 import dev.compasses.aofemotes.Constants;
 import dev.compasses.aofemotes.emotes.Emote;
 import dev.compasses.aofemotes.emotes.EmoteRegistry;
-import net.minecraft.client.util.ChatMessages;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 import java.util.regex.Matcher;
+import net.minecraft.client.gui.components.ComponentRenderUtils;
 
-@Mixin({ChatMessages.class})
+@Mixin(ComponentRenderUtils.class)
 public class ChatMessagesMixin {
     @ModifyVariable(
-            method = {"getRenderedChatMessage"},
+            method = "stripColor(Ljava/lang/String;)Ljava/lang/String;",
             at = @At("HEAD"),
             ordinal = 0,
             argsOnly = true

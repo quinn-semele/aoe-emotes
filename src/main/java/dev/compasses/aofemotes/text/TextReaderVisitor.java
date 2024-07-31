@@ -1,15 +1,15 @@
 package dev.compasses.aofemotes.text;
 
-import net.minecraft.text.CharacterVisitor;
-import net.minecraft.text.OrderedText;
-import net.minecraft.text.Text;
-import net.minecraft.text.Style;
-import net.minecraft.text.MutableText;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.Style;
+import net.minecraft.util.FormattedCharSequence;
+import net.minecraft.util.FormattedCharSink;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TextReaderVisitor implements CharacterVisitor {
+public class TextReaderVisitor implements FormattedCharSink {
     private final List<TextPart> parts = new ArrayList<>();
 
     @Override
@@ -35,12 +35,12 @@ public class TextReaderVisitor implements CharacterVisitor {
         }
     }
 
-    public OrderedText getOrderedText() {
-        MutableText text = Text.literal("");
+    public FormattedCharSequence getOrderedText() {
+        MutableComponent text = Component.literal("");
         for (TextPart part : parts) {
-            text.append(Text.literal(Character.toString(part.getChar())).setStyle(part.getStyle()));
+            text.append(Component.literal(Character.toString(part.getChar())).setStyle(part.getStyle()));
         }
-        return text.asOrderedText();
+        return text.getVisualOrderText();
     }
 
     public String getString() {

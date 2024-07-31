@@ -1,6 +1,6 @@
 package dev.compasses.aofemotes.text;
 
-import net.minecraft.text.Style;
+import net.minecraft.network.chat.Style;
 
 public final class TextPart {
     private final Style style;

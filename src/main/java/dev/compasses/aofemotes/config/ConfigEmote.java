@@ -1,7 +1,7 @@
 package dev.compasses.aofemotes.config;
 
 import dev.compasses.aofemotes.emotes.Emote;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 import java.io.IOException;
 
@@ -21,7 +21,7 @@ public final class ConfigEmote {
     }
 
     public Emote asRegistryEmote(int emoteId) throws IOException {
-        return Emote.create(emoteId, name, Identifier.tryParse(path), frameTime);
+        return Emote.create(emoteId, name, ResourceLocation.tryParse(path), frameTime);
     }
 
     public String getName() {
