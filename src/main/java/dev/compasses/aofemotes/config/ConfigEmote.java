@@ -1,12 +1,12 @@
-package ellemes.aofemotes.config;
+package dev.compasses.aofemotes.config;
 
+import dev.compasses.aofemotes.emotes.Emote;
 import net.minecraft.util.Identifier;
-import ellemes.aofemotes.emotes.Emote;
 
 import java.io.IOException;
 
 /**
- * @author Ellemes
+ * @author Ellie Semele
  */
 @SuppressWarnings("ClassCanBeRecord")
 public final class ConfigEmote {
@@ -21,7 +21,7 @@ public final class ConfigEmote {
     }
 
     public Emote asRegistryEmote(int emoteId) throws IOException {
-        return Emote.create(emoteId, name, new Identifier(path), frameTime);
+        return Emote.create(emoteId, name, Identifier.tryParse(path), frameTime);
     }
 
     public String getName() {

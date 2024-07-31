@@ -1,7 +1,7 @@
-package ellemes.aofemotes.emotes;
+package dev.compasses.aofemotes.emotes;
 
-import ellemes.aofemotes.Constants;
-import ellemes.aofemotes.config.ConfigEmote;
+import dev.compasses.aofemotes.Constants;
+import dev.compasses.aofemotes.config.ConfigEmote;
 
 import java.util.Collection;
 import java.util.List;

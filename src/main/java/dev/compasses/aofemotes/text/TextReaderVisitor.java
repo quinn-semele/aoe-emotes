@@ -1,4 +1,4 @@
-package ellemes.aofemotes.text;
+package dev.compasses.aofemotes.text;
 
 import net.minecraft.text.CharacterVisitor;
 import net.minecraft.text.OrderedText;

@@ -1,9 +1,9 @@
-package ellemes.aofemotes.mixin;
+package dev.compasses.aofemotes.mixin;
 
+import dev.compasses.aofemotes.Constants;
+import dev.compasses.aofemotes.emotes.Emote;
+import dev.compasses.aofemotes.emotes.EmoteRegistry;
 import net.minecraft.client.util.ChatMessages;
-import ellemes.aofemotes.Constants;
-import ellemes.aofemotes.emotes.Emote;
-import ellemes.aofemotes.emotes.EmoteRegistry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;

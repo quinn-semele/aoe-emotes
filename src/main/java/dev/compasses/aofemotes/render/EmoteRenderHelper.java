@@ -1,14 +1,12 @@
-package ellemes.aofemotes.render;
+package dev.compasses.aofemotes.render;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.DrawableHelper;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.text.Style;
-import ellemes.aofemotes.Constants;
-import ellemes.aofemotes.emotes.Emote;
-import ellemes.aofemotes.emotes.EmoteRegistry;
-import ellemes.aofemotes.text.TextReaderVisitor;
+import dev.compasses.aofemotes.Constants;
+import dev.compasses.aofemotes.emotes.Emote;
+import dev.compasses.aofemotes.emotes.EmoteRegistry;
+import dev.compasses.aofemotes.text.TextReaderVisitor;
 
 import java.util.regex.Matcher;
 
@@ -38,9 +36,7 @@ public class EmoteRenderHelper {
         }
     }
 
-    public static void drawEmote(MatrixStack matrices, Emote emote, float emoteX, float emoteY, float size, float alpha, float sizeMult, float maxWidthMult) {
-        RenderSystem.setShaderTexture(0, emote.getTextureIdentifier());
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, alpha);
+    public static void drawEmote(DrawContext drawContext, Emote emote, float emoteX, float emoteY, float size, float alpha, float sizeMult, float maxWidthMult) {
         float scaleX = sizeMult * emote.getWidth() / emote.getHeight();
         float scaleY = sizeMult;
         if (scaleX > maxWidthMult) {
@@ -52,6 +48,6 @@ public class EmoteRenderHelper {
         int x = (int) (emoteX + size * (1.0F - scaleX) / 2.0F);
         int y = (int) (emoteY + size * (1.0F - scaleY) / 2.0F);
         int frameNumber = emote.isAnimated() ? (int) (System.currentTimeMillis() / emote.getFrameTimeMs() % emote.getFrameCount()) : 1;
-        DrawableHelper.drawTexture(matrices, x, y, Math.round(size * scaleX), Math.round(size * scaleY), 0.0F, (float) (emote.getHeight() * frameNumber), emote.getWidth(), emote.getHeight(), emote.getSheetWidth(), emote.getSheetHeight());
+        drawContext.drawTexture(emote.getTextureIdentifier(),  x, y, Math.round(size * scaleX), Math.round(size * scaleY), 0.0F, (float) (emote.getHeight() * frameNumber), emote.getWidth(), emote.getHeight(), emote.getSheetWidth(), emote.getSheetHeight());
     }
 }

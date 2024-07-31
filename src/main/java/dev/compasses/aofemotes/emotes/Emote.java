@@ -1,4 +1,4 @@
-package ellemes.aofemotes.emotes;
+package dev.compasses.aofemotes.emotes;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.resource.Resource;

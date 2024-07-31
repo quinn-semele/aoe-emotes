@@ -1,9 +1,9 @@
-package ellemes.aofemotes.render;
+package dev.compasses.aofemotes.render;
 
-import ellemes.aofemotes.emotes.Emote;
+import dev.compasses.aofemotes.emotes.Emote;
 
 /**
- * @author Ellemes
+ * @author Ellie Semele
  */
 public interface EmoteRenderConsumer {
     void accept(Emote emote, float emoteX, float emoteY);

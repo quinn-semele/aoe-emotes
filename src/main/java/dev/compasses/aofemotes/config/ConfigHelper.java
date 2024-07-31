@@ -1,11 +1,11 @@
-package ellemes.aofemotes.config;
+package dev.compasses.aofemotes.config;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
+import dev.compasses.aofemotes.Constants;
 import net.fabricmc.loader.api.FabricLoader;
-import ellemes.aofemotes.Constants;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Ellemes
+ * @author Ellie Semele
  */
 public class ConfigHelper {
     public static List<ConfigEmote> loadOrSaveConfig() {

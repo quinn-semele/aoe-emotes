@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "ellemes.aofemotes.mixin",
+  "package": "dev.compasses.aofemotes.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [],
   "client": [

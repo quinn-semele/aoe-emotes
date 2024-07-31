@@ -10,25 +10,25 @@
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/aof-emotes/",
-    "sources": "https://github.com/Ellemes/aof-emotes/",
-    "issues": "https://github.com/Ellemes/aof-emotes/issues/"
+    "sources": "https://github.com/quinn-semele/aof-emotes/",
+    "issues": "https://github.com/quinn-semele/aof-emotes/issues/"
   },
   "license": "MIT",
   "icon": "assets/aofemotes/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "ellemes.aofemotes.Main"
+      "dev.compasses.aofemotes.Main"
     ]
   },
   "mixins": [
     "aofemotes.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.6",
+    "fabricloader": ">=0.15.11",
     "fabric-resource-loader-v0": ">=0.6.1",
-    "minecraft": ">=1.19.2",
-    "java": ">=17"
+    "minecraft": ">=1.21",
+    "java": ">=21"
   },
   "breaks": {
     "fabricemotes": "*"
